@@ -1,7 +1,9 @@
+import Products from './components/product/products'
+
 export default function Home() {
 	return (
 		<div>
-			<h1>Next.js Ecommerce!</h1>
+			<Products />
 		</div>
 	)
 }
