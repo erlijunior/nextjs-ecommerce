@@ -1,7 +1,7 @@
 export default function Home() {
 	return (
-		<main>
+		<div>
 			<h1>Next.js Ecommerce!</h1>
-		</main>
+		</div>
 	)
 }
