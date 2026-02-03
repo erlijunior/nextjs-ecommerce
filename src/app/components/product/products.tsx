@@ -1,24 +1,16 @@
 'use client'
-import { getProducts } from '@/actions/product.actions'
-import { Product } from '@/app/types/product'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import ProductCard from './product-card'
+import { useProductStore } from '@/app/store/useProductStore'
 
 const Products = () => {
-	const [products, setProducts] = useState<Product[]>([])
-	const [loading, setLoading] = useState<boolean>(true)
+	const products = useProductStore((state) => state.products)
+	const fetchProducts = useProductStore((state) => state.fetchProducts)
+	const loading = useProductStore((state) => state.loading)
 
 	useEffect(() => {
-		// Simulação de fetch de produtos
-		const fetchProducts = async () => {
-			// Aqui você pode substituir pela chamada real à API
-			const fetchedProducts = await getProducts()
-			setProducts(fetchedProducts)
-			setLoading(false)
-		}
-
 		fetchProducts()
-	}, [])
+	}, [fetchProducts])
 
 	if (loading) {
 		return (
