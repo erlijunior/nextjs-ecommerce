@@ -15,7 +15,6 @@ export async function getProducts(): Promise<Product[]> {
 
 export async function getProductById(id: string): Promise<Product | null> {
 	const response = await fetch('../products.json')
-	console.log('response', response)
 
 	if (!response.ok) {
 		throw new Error('Failed to fetch products')
