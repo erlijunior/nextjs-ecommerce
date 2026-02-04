@@ -1,4 +1,4 @@
-// import { useCartStore } from '@/app/store/useCartStore'
+import { useCartStore } from '@/app/store/useCartStore'
 import { Product } from '@/app/types/product'
 
 type AddCartProps = {
@@ -6,12 +6,12 @@ type AddCartProps = {
 }
 
 const AddCart = ({ product }: AddCartProps) => {
-	// const addToCart = useCartStore((state) => state.addToCart)
-	// const toggleCart = useCartStore((state) => state.toggleCart)
+	const { addToCart, toggleCart, cartIsOpen } = useCartStore()
 
 	const handleAddToCart = () => {
-		// addToCart(product, 1)
-		// toggleCart()
+		addToCart(product, 1)
+
+		if (!cartIsOpen) toggleCart()
 	}
 	return (
 		<button onClick={handleAddToCart} className='mt-4 w-full btn btn-primary font-bold py-2 px-4'>
