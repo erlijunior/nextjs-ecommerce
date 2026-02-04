@@ -8,8 +8,7 @@ type ProductProps = {
 }
 
 const Product = ({ id }: ProductProps) => {
-	const product = useProductStore((state) => state.product)
-	const fetchProductById = useProductStore((state) => state.fetchProductById)
+	const { product, fetchProductById } = useProductStore()
 
 	useEffect(() => {
 		fetchProductById(Number(id))

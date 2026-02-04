@@ -16,7 +16,6 @@ type ProductStore = {
 export const useProductStore = create<ProductStore>()(
 	persist(
 		(set) => ({
-			cartItems: [],
 			loading: false,
 			product: null,
 			products: [],

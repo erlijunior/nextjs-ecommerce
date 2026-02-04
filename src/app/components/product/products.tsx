@@ -4,13 +4,21 @@ import ProductCard from './product-card'
 import { useProductStore } from '@/app/store/useProductStore'
 
 const Products = () => {
-	const products = useProductStore((state) => state.products)
-	const fetchProducts = useProductStore((state) => state.fetchProducts)
-	const loading = useProductStore((state) => state.loading)
+	const { products, fetchProducts, loading, hasHydrated } = useProductStore()
 
 	useEffect(() => {
-		fetchProducts()
-	}, [fetchProducts])
+		if (hasHydrated) {
+			fetchProducts()
+		}
+	}, [fetchProducts, hasHydrated])
+
+	if (!hasHydrated) {
+		return (
+			<section className='max-w-7xl mx-auto pt-8 px-4 xl:px-0'>
+				<p>Inicializando...</p>
+			</section>
+		)
+	}
 
 	if (loading) {
 		return (
