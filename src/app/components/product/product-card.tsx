@@ -14,9 +14,6 @@ const ProductCard = ({ product }: ProductProps) => {
 				className='group rounded-lg shadow-sm md:hover:shadow-lg transition-shadow duration-200 cursor-pointer bg-white'
 			>
 				<div className='relative overflow-hidden h-auto bg-gray-200 mb-4 flex items-center justify-center'>
-					<span className='absolute top-2 left-2 bg-red-600 text-white px-2 py-1 text-xs rounded z-5'>
-						Última unidade
-					</span>
 					<Image
 						src={product.image}
 						alt={`Produto ${product.id}`}
