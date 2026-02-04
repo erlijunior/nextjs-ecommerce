@@ -10,6 +10,6 @@
 	}
 
 	.btn-secondary {
-		@apply bg-gray-600 hover:bg-gray-700;
+		@apply bg-orange-600 hover:bg-orange-700;
 	}
 }

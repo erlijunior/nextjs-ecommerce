@@ -7,7 +7,7 @@ type ProductStore = {
 	loading: boolean
 	products: Product[]
 	product: Product | null
-	getProductById: (id: number) => Promise<void>
+	fetchProductById: (id: number) => Promise<void>
 	fetchProducts: () => Promise<void>
 	hasHydrated: boolean
 	setHasHydrated: () => void
@@ -25,7 +25,7 @@ export const useProductStore = create<ProductStore>()(
 				const products: Product[] = await getProducts()
 				set({ products: products, loading: false })
 			},
-			getProductById: async (id: number) => {
+			fetchProductById: async (id: number) => {
 				const product: Product | null = await getProductById(String(id))
 				set({ product })
 			},
