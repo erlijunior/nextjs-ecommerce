@@ -14,7 +14,11 @@ const AddCart = ({ product }: AddCartProps) => {
 		if (!cartIsOpen) toggleCart()
 	}
 	return (
-		<button onClick={handleAddToCart} className='mt-4 w-full btn btn-primary font-bold py-2 px-4'>
+		<button
+			onClick={handleAddToCart}
+			className='mt-4 w-full btn btn-primary font-bold py-2 px-4'
+			aria-label={`Adicionar ${product.name} ao carrinho`}
+		>
 			Adicionar ao carrinho
 		</button>
 	)

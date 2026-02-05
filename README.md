@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mini E-commerce - Desafio Técnico
 
-## Getting Started
+## Por que escolhi o framework
 
-First, run the development server:
+Escolhi **Next.js** pela facilidade de configurar tanto o frontend quanto a API no mesmo projeto, além da excelente experiência de desenvolvimento com TypeScript e a facilidade de deploy na Vercel.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Estrutura de pastas do projeto
+
+```
+src/
+├── actions/           # Server actions para comunicação com API
+├── app/
+│   ├── components/    # Componentes reutilizáveis
+│   │   ├── cart/      # Componentes do carrinho
+│   │   ├── footer/    # Footer da aplicação
+│   │   ├── header/    # Header com logo e carrinho
+│   │   ├── product/   # Componentes relacionados a produtos
+│   │   └── ui/        # Componentes de interface (skeletons, etc.)
+│   ├── store/         # Gerenciamento de estado com Zustand
+│   ├── types/         # Definições TypeScript
+│   └── api/           # API Routes do Next.js
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Como rodar o projeto localmente
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Instalar dependências
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Rodar em modo desenvolvimento
+npm run dev
 
-## Learn More
+# O projeto estará disponível em http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Variáveis de ambiente
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Link do deploy público
 
-## Deploy on Vercel
+https://nextjs-ecommerce-xi-kohl.vercel.app/
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Decisões técnicas relevantes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Zustand** para gerenciamento de estado: mais simples que Redux para este projeto e para aprender, pois usei pouco em projetos anteriores
+- **TailwindCSS** para estilização: desenvolvimento mais rápido e responsivo
+- **Framer Motion** para animações do carrinho - já havia utilizado antes em outros projetos
+- **TypeScript** por estar familiarizado com React + TypeScript
+- **Persistência no localStorage** para manter carrinho entre sessões
+- **Skeleton loading** para melhor experiência do usuário durante carregamentos
+
+## Uso de IA no desenvolvimento
+
+Durante o desenvolvimento deste projeto, utilizei o **GitHub Copilot** como ferramenta de assistência para:
+
+- **Geração de componentes**: Auxílio na criação de componentes skeleton e estruturas repetitivas
+- **Otimização de código**: Sugestões para melhorar a performance e legibilidade do código
+- **Resolução de problemas**: Ajuda na identificação e correção de bugs específicos (como o problema de produto anterior sendo exibido)
+- **Documentação**: Auxílio na estruturação deste README e comentários no código
+- **TypeScript**: Sugestões de tipagem mais precisas e interfaces
+
+O Copilot foi usado como uma ferramenta complementar ao meu conhecimento, me ajudando na soluções de bugs e testes sem substituir o raciocínio lógico e as decisões arquiteturais, que foram todas pensadas e implementadas por mim.
+
+## Funcionalidades implementadas
+
+### ✅ Requisitos obrigatórios
+
+- [x] Framework Next.js com API Routes
+- [x] Endpoints `/api/products` e `/api/products/:id`
+- [x] Home com listagem de produtos
+- [x] Página de produto com detalhes + botão "Adicionar ao carrinho"
+- [x] Header com logo e ícone do carrinho
+- [x] Footer simples
+- [x] Minicarrinho (drawer/sidebar) com todas as funcionalidades
+- [x] Responsividade mobile-first
+- [x] Deploy público
+
+### ✅ Diferenciais implementados
+
+- [x] TypeScript completo
+- [x] Gerenciamento de estado com Zustand
+- [x] Animações no carrinho com Framer Motion
+- [x] Persistência do carrinho no localStorage
+- [x] Loading states com skeleton components
+- [x] SEO básico com metadata
+
+## Tecnologias utilizadas
+
+- **Frontend**: Next.js 15, React, TypeScript
+- **Estilização**: TailwindCSS
+- **Gerenciamento de estado**: Zustand
+- **Animações**: Framer Motion
+- **Ícones**: Lucide React
+- **Deploy**: Vercel

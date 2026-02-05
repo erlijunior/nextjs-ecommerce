@@ -30,7 +30,12 @@ const ProductCard = ({ product }: ProductProps) => {
 						<span className='text-xl font-bold'>{formatCurrency(String(product.price))}</span>
 					</div>
 
-					<button className='btn btn-primary mt-2 w-full'>Ver detalhes</button>
+					<button
+						className='btn btn-primary mt-2 w-full'
+						aria-label={`Ver detalhes do produto ${product.name}`}
+					>
+						Ver detalhes
+					</button>
 				</div>
 			</div>
 		</Link>

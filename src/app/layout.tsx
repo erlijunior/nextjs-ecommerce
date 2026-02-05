@@ -16,8 +16,16 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-	title: 'Nextjs Eccomerce',
-	description: ' Desenvolvido por Erli Junior - Next.js@16.1.6',
+	title: 'Mini E-commerce - Produtos para Desenvolvedores',
+	description:
+		'Loja online com camisetas, canecas e acessórios exclusivos para desenvolvedores. Produtos de qualidade com entrega rápida.',
+	keywords: 'ecommerce, developer, camisetas, canecas, programador',
+	authors: [{ name: 'Erli Junior' }],
+	openGraph: {
+		title: 'Mini E-commerce',
+		description: 'Produtos exclusivos para desenvolvedores',
+		type: 'website',
+	},
 }
 
 export default function RootLayout({

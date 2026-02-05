@@ -3,6 +3,7 @@ import { useProductStore } from '@/app/store/useProductStore'
 import { useEffect } from 'react'
 import ProductImage from './product-image'
 import ProductInfo from './product-info'
+import { ProductSkeleton } from '../ui/product-skeleton'
 type ProductProps = {
 	id: string
 }
@@ -14,8 +15,11 @@ const Product = ({ id }: ProductProps) => {
 		fetchProductById(Number(id))
 	}, [fetchProductById, id])
 
-	if (!product) {
-		return <div>Produto não encontrado.</div>
+	// Verifica se o produto carregado é o correto
+	const isCorrectProduct = product && product.id === Number(id)
+
+	if (!isCorrectProduct) {
+		return <ProductSkeleton />
 	}
 
 	return (
